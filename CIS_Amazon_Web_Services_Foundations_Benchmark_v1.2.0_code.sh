@@ -16,8 +16,77 @@ echo "testing 1.1"
 # ROOTLASTUSED=`aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | cut -d, -f1,5,11,16 | grep -B1 '<root_account>'`
 # ROOTLASTUSED=`aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | cut -d, -f1,5,11,16 | grep -B1 '<root_account>' | cut -d, -f16` 
 # aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | grep -B1 '<root_account>' | cut -d, -f1,5,11,16
-aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | grep -B1 '<root_account>' | cut -d, -f5
+# XXX=`aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | grep -B1 '<root_account>' | cut -d, -f5`
 echo "---------------------"
+echo "1"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f1
+
+echo "---------------------"
+echo "2"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f2
+
+echo "---------------------"
+echo "3"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f3
+
+echo "---------------------"
+echo "4"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f4
+
+echo "---------------------"
+echo "5"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f5
+
+echo "---------------------"
+echo "6"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f6
+
+echo "---------------------"
+echo "7"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f7
+
+echo "---------------------"
+echo "8"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f8
+
+echo "---------------------"
+echo "9"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f9
+
+echo "---------------------"
+echo "10"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f10
+
+echo "---------------------"
+echo "11"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f11
+
+echo "---------------------"
+echo "12"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f12
+
+echo "---------------------"
+echo "13"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f13
+
+echo "---------------------"
+echo "14"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f14
+
+echo "---------------------"
+echo "15"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f15
+
+echo "---------------------"
+echo "16"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f16
+
+echo "---------------------"
+echo "17"
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d |cut -d, -f17
+
+
+echo "Done...."
 
 
 # parse out the field
