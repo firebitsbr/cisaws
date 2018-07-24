@@ -1,15 +1,39 @@
 # Audit
 
+# Use a profile which has access for these commands
+export THISPROFILE=tvmadmin
+
 # 1 Identity and Access Management 
 
+# Generate credential report for following IAM checks
+aws iam generate-credential-report --profile $THISPROFILE
+echo "generated credential report"
+echo "---------------------"
+
+
 # 1.1 Avoid the use of the "root" account (Scored) 
-aws iam generate-credential-report 
-aws iam get-credential-report --query 'Content' --output text | base64 -d | cut -d, -f1,5,11,16 | grep -B1 '<root_account>' 
-
-# 1.2 Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password (Scored) 
-aws iam generate-credential-report 
-aws iam get-credential-report --query 'Content' --output text | base64 -d | cut -d, -f1,4,8 
-
+# ROOTLASTUSED=`aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | cut -d, -f1,5,11,16 | grep -B1 '<root_account>'`
+# ROOTLASTUSED=`aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | cut -d, -f1,5,11,16 | grep -B1 '<root_account>' | cut -d, -f16` 
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | grep -B1 '<root_account>' | cut -d, -f1,5,11,16
+
+
+# parse out the field
+# 2018-07-02T16:14:50+00:00
+
+# Measure 
+# # 1.2 Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console password (Scored)
+# aws iam generate-credential-report  --profile $THISPROFILE
+
+echo "---------------------"
+aws iam get-credential-report --profile $THISPROFILE --query 'Content' --output text | base64 -d | cut -d, -f1,4,8
+echo ""
+
+
+
+echo "---------------------"
+exit
+
+
 # 1.3 Ensure credentials unused for 90 days or greater are disabled (Scored) 
 aws iam generate-credential-report 
 aws iam get-credential-report --query 'Content' --output text | base64 -d | cut -d, -f1,4,5,6,9,10,11,14,15,16 
