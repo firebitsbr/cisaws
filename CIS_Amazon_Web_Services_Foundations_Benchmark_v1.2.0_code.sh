@@ -12,9 +12,12 @@ echo "---------------------"
 
 
 # 1.1 Avoid the use of the "root" account (Scored) 
+echo "testing 1.1"
 # ROOTLASTUSED=`aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | cut -d, -f1,5,11,16 | grep -B1 '<root_account>'`
 # ROOTLASTUSED=`aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | cut -d, -f1,5,11,16 | grep -B1 '<root_account>' | cut -d, -f16` 
-aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | grep -B1 '<root_account>' | cut -d, -f1,5,11,16
+# aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | grep -B1 '<root_account>' | cut -d, -f1,5,11,16
+aws iam get-credential-report --query 'Content' --output text --profile $THISPROFILE | base64 -d | grep -B1 '<root_account>' | cut -d, -f5
+echo "---------------------"
 
 
 # parse out the field
